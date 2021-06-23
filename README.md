@@ -37,7 +37,7 @@ The solution is built around a central Takeaway class that is responsible for us
 The Menu class is responsible for generating a menu. This class is injected into the Takeaway class to enable the menu to be changed depending on user requirements. The Calculator class is responsible for calculating the order total.
 
 The following sequence diagram was created during planning phase:
-![class_diagram](./images/sequence.png)
+![class_diagram](./images/new_sequence.png)
 
 An alternative solution whereby an order class takes an order and calculates the total was considered. However, this would spread out the user interaction responsibility to 2 classes and would only allow 1-2 lines of code to be removed from the Takeaway class, therefore this solution was not implemented.
 
@@ -101,7 +101,7 @@ takeaway-challenge % irb
 
 This will send a text message to the user (program need to be updated with valid Twillio account and phone numbers)
 
-![class_diagram](./images/screenshot.png)
+![class_diagram](./images/new_screenshot.png)
 
 ## Testing
 
@@ -136,5 +136,6 @@ The majority of functionality exists, time permitting I would have added:
 - better looking UI for the menu and basket, move from a hash to well formatted strings
 - add a more functional checkout where the user can enter their number for the sms confirmation 
 - ability to remove an item from the order or change quantity 
+- more detail in the text message confirmation perhaps including order total, expcted delivery time and/or order summary
 
 Original README [here](https://github.com/makersacademy/takeaway-challenge)
