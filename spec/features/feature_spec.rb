@@ -11,5 +11,13 @@ RSpec.describe 'Feature tests' do
     expect(t.view_menu).to eq(dishes)
   end
 
-
+  # As a customer
+  # So that I can order the meal I want
+  # I would like to be able to select some number of several available dishes
+  it 'allows users to order items' do
+    t = Takeaway.new
+    t.order("Soup")
+    t.order("Pasta", 2)
+    expect(t.basket).not_to be_empty
+  end
 end

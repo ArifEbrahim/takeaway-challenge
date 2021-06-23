@@ -10,5 +10,14 @@ RSpec.describe Takeaway do
       expect(subject.view_menu).to eq(test_menu)
     end  
   end
+
+  describe '#order' do
+    it 'allows users to order dishes from the menu' do
+      subject.order("Pizza")
+      subject.order("Burger", 2)
+      expect(subject.basket).not_to be_empty
+      expect(subject.basket).to include("Pizza") 
+    end
+  end
    
 end
