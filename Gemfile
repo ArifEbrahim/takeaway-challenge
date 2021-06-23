@@ -6,6 +6,7 @@ group :test do
   gem 'rspec'
   gem 'rubocop'
   gem 'rubocop-rspec'
+  gem 'twilio-ruby'
   gem 'simplecov', require: false, group: :test
   gem 'simplecov-console', require: false, group: :test
 end

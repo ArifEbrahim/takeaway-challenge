@@ -22,7 +22,11 @@ class Takeaway
 
   def total
     total = @calculator.calculate_total(@basket, @dishes)
-    return "Total £#{'%.2f' % total}"
+    "Total £#{'%.2f' % total}"
+  end
+
+  def summary
+    @basket
   end
 
   private

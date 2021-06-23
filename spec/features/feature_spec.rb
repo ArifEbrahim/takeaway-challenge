@@ -31,4 +31,10 @@ RSpec.describe 'Feature tests' do
     t.order('Pasta', 2)
     expect(t.total).to eq ('Total £12.00')
   end
+
+  # As a customer
+  # So that I am reassured that my order will be delivered on time
+  # I would like to receive a text such as "Thank you! Your order was placed and will be delivered before 18:52" after I have ordered
+
+
 end
