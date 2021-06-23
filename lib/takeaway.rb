@@ -1,14 +1,13 @@
-# frozen_string_literal: true
-
 require './lib/menu'
+require './lib/calculator'
 
 class Takeaway
   attr_reader :basket
 
-  def initialize(menu = Menu.new)
-    @menu = menu
-    @dishes = @menu.generate
+  def initialize(menu = Menu.new, calculator = Calculator.new)
+    @dishes = menu.generate
     @basket = Hash.new(0)
+    @calculator = calculator
   end
 
   def view_menu
@@ -16,14 +15,19 @@ class Takeaway
   end
 
   def order(item, quantity = 1)
+    raise 'Item not on menu, please try again' unless item_present?(item)
     @basket[item] += quantity
+    "#{quantity} #{item}(s) added to your basket"
   end
 
   def total
-    total = 0
-    @basket.each do |item, quantity|
-      total += (@dishes[item] * quantity)
-    end
+    total = @calculator.calculate_total(@basket, @dishes)
     return "Total £#{'%.2f' % total}"
+  end
+
+  private
+
+  def item_present?(item)
+    @dishes.key?(item)
   end
 end

@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 RSpec.describe 'Feature tests' do
   let(:dishes) { { 'Salad' => 1.00, 'Soup' => 2.00, 'Pasta' => 5.00, 'Pizza' => 7.00 } }
 

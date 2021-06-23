@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 class Menu
   def generate
     { 'Salad' => 1.00, 'Soup' => 2.00, 'Pasta' => 5.00, 'Pizza' => 7.00 }
