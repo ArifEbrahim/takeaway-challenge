@@ -3,7 +3,7 @@ require './lib/menu.rb'
 class Takeaway 
   def initialize(menu=Menu.new)
     @menu = menu
-    @dishes = menu.generate
+    @dishes = @menu.generate
   end
 
 
