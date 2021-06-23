@@ -18,4 +18,12 @@ class Takeaway
   def order(item, quantity = 1)
     @basket[item] += quantity
   end
+
+  def total
+    total = 0
+    @basket.each do |item, quantity|
+      total += (@dishes[item] * quantity)
+    end
+    return "Total £#{'%.2f' % total}"
+  end
 end

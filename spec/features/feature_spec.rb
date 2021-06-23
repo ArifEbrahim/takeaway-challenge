@@ -29,6 +29,8 @@ RSpec.describe 'Feature tests' do
 
   it 'allows users to check their basket total' do
     t = Takeaway.new
-    
+    t.order('Soup')
+    t.order('Pasta', 2)
+    expect(t.total).to eq ('Total £12.00')
   end
 end
