@@ -1,7 +1,9 @@
+require './lib/menu.rb'
 
 class Takeaway 
-  def initialize
-    @dishes = {"Pizza" => 5, "Burger" => 6}
+  def initialize(menu=Menu.new)
+    @menu = menu
+    @dishes = menu.generate
   end
 
 
