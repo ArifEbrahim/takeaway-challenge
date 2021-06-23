@@ -1,13 +1,15 @@
-require './lib/menu'
-require './lib/calculator'
+require './lib/menu.rb'
+require './lib/calculator.rb'
+require './lib/message.rb'
 
 class Takeaway
   attr_reader :basket
 
-  def initialize(menu = Menu.new, calculator = Calculator.new)
+  def initialize(menu = Menu.new, calculator = Calculator.new, message = Message.new)
     @dishes = menu.generate
     @basket = Hash.new(0)
     @calculator = calculator
+    @message = message
   end
 
   def view_menu
@@ -29,9 +31,14 @@ class Takeaway
     @basket
   end
 
+  def purchase
+    @message.send_sms
+  end
+
   private
 
   def item_present?(item)
     @dishes.key?(item)
   end
+
 end

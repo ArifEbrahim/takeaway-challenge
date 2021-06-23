@@ -1,12 +1,12 @@
-require './lib/takeaway'
+require './lib/takeaway.rb'
 
 RSpec.describe Takeaway do
   let(:test_menu) { { 'Pizza' => 5.00, 'Burger' => 6.00 } }
   let(:menu) { double :menu, generate: test_menu }
   let(:calculator) { double :calculator }
-  let(:message) { double :message  }
+  let(:message) { double :message }
   let(:test_order) { {'Pizza' => 1, 'Burger' => 2} }
-  subject(:takeaway) { described_class.new(menu, calculator) }
+  subject(:takeaway) { described_class.new(menu, calculator, message) }
 
   describe '#view_menu' do
     it 'displays a list of dishes and their prices' do
@@ -43,9 +43,12 @@ RSpec.describe Takeaway do
     end
   end
 
-  # describe '#purchase' do
-  #   it 'sends the user a text message confirming the order & delivery time' do
-      
-  #   end
-  # end
+  describe '#purchase' do
+    it 'sends a text message to the user confirming the order' do
+      expect(message).to receive(:send_sms)
+      takeaway.purchase
+    end
+  end
+
+
 end
